@@ -1,16 +1,73 @@
-<h1>My Homepage</h1>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>社会人1年生のためのマネーサイト</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="社会人1年生のためのマネーサイトです。金融リテラシー向上を目的としています。">
+<meta name="keywords" content="税,社会人1年目,確定申告,社会保険料,ふるさと納税">
+<link rel="stylesheet" href="css/style.css">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
 
-<div class="stripe">
-  <div class="stripe-inner">
-    <p>Welcome to my homepage</p>
-  </div>
+<body>
 
-  <header style="background-color:gray">Header</header>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-2" style="background-color:red;">赤</div>
-    <div class="col-sm-8" style="background-color:blue;">Blue</div>
-    <div class="col-sm-2" style="background-color:yellow;">Yellow</div>
-  </div>
+<div id="container">
+
+<header>
+<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="社会人1年生のためのマネーサイト"></a></h1>
+<!--<aside id="sample0"><img src="images/sample0.jpg" alt=""></aside>-->
+</header>
+
+<nav id="menubar">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">所得税</a></li>
+<li><a href="fee.html">社会保険料</a></li>
+<li><a href="trivia.html">豆知識</a></li>
+</ul>
+</nav>
+
+<div id="contents">
+<section id= "first">
+<h2>このサイトの目的</h2>
+<p>社会人1年目の方の、金融リテラシー向上を目的とし、主に税金について解説しています。</p>
+<fieldset style=" background: #fcf0f1; padding: 20px;  margin-bottom: 20px; width: 400px; border: 2px dashed #ad8e60cc; box-shadow: 0 0 0 5px #ffe6e8; -moz-box-shadow: 0 0 0 5px #ffe6e8; -webkit-box-shadow: 0 0 0 5px #faf0f1; font-size: 100%;"><legend>対象者</legend>
+  <p>✓&emsp;新卒社会人1年目</p>
+  <p>✓&emsp;独身</p>
+  <p>✓&emsp;1つの会社に勤務</p>
+  <p>✓&emsp;給与以外の収入がない</p></fieldset>
+
+<h2>学生と社会人の違い</h2>
+<p>「103万の壁」という言葉を耳にしたことがありますか。これはアルバイトなどの収入で所得税が課されず、親など世帯主の扶養からも外れない限度額を表しています。</p>
+<p><a href="https://www.mhlw.go.jp/toukei/itiran/roudou/chingin/kouzou/19/01.html">厚生労働省の令和元年度賃金構造基本統計調査</a>によれば、大学卒の社会人の初任給は約210万円であり、所得税の課税対象者となっていることが分かります。また、アルバイトでは収入の全額が支給されていた人も、会社員になれば税金や社会保険料が天引きされた額が手取りとして支給されるようになります。</p>
+
+<h2>天引きされる5つの項目</h2>
+<h8>&emsp;1. 所得税&emsp;</h8>
+<p>所得税は、所得に応じて課税される税金です。日本では累進課税が採用されており、所得の多い人ほど高い税率が課されます。2022年1月1日時点で、所得税率は5％～45％の7段階に設定されています。</p>
+<h8>&emsp;2. 健康保険料&emsp;</h8>
+<p>健康保険料とは、国民の医療費の財源となっている公的な医療保険料です。健康保険料は、会社がどの組合に所属しているかによって異なります。大企業の従業員の場合は、組合管掌健康保険（組合健保）で保険料率が3％～13％、中小企業の従業員の場合は、全国健康保険協会（協会けんぽ）で保険料が9％～11％です。基本的には4月～6月の報酬平均額をもとに算出される標準報酬月額および標準賞与額に、保険料率を掛けたものを会社と折半して納めています。4月入社の新卒社会人にとって、健康保険料の天引きが始まるのは5月からです。</p>
+<h8>&emsp;3. 厚生年金保険料&emsp;</h8>
+<p>厚生年金保険料とは、将来受給できる公的年金の掛け金となる保険料で、保険料率は一律18.3％です。健康保険料と同じく、基本的には4月～6月の報酬平均額をもとに算出される標準報酬月額および標準賞与額に、保険料率を掛けたものを会社と折半して納めています。厚生年金保険料の天引きも5月から始まります。</p>
+<h8>&emsp;4. 雇用保険料&emsp;</h8>
+<p>雇用保険料は、失業給付や育児休業給付などの公的サービスを提供するための雇用保険の掛け金です。毎月の総賃金額に、事業によって異なる0.9％～1.2％の保険料率を掛けて算出されます。労使折半ではなく、事業主である会社の方が多く負担することになっています。</p>
+<h8>&emsp;5. 住民税&emsp;</h8>
+<p>住民税は前年の所得によって金額が決定される所得割と、市区町村によって定額で定められている均等割の2種類で構成されています。所得割の標準税率は原則10％ですが、豊岡市は10.1％、横浜市は10.025％、名古屋市は9.7％と増額・減額している自治体もあります。均等割は原則5000円ですが、これも自治体によって差異があります。多くの新卒社会人にとって、住民税の天引きは2年目からですが、前年のアルバイト収入が原則100万円（自治体による差異あり）を超える場合には1年目から天引きされます。</p>
+
+
+<!--/contents-->
+
+<footer>
+<small>Copyright&copy; <a href="index.html">社会人1年生のためのマネーサイト2022</a> All Rights Reserved.</small>
+<span class="pr">《<a href="https://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
+</footer>
+
 </div>
-<footer style="background-color:gray">Footer</footer>
+<!--/container-->
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>初心者向けホームページテンプレート tp_beginner5</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="社会人1年生のためのマネーサイトです。金融リテラシー向上を目的としています。">
+<meta name="keywords" content="税,社会人1年目,確定申告,社会保険料,ふるさと納税">
+<link rel="stylesheet" href="css/style.css">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div id="container">
+
+<header>
+<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="社会人1年生のためのマネーサイト"></a></h1>
+</header>
+
+<nav id="menubar">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">所得税</a></li>
+<li><a href="fee.html">社会保険料</a></li>
+<li><a href="trivia.html">豆知識</a></li>
+
+</ul>
+</nav>
+
+<div id="contents">
+
+<section>
+
+<h2>社会保険料の計算</h2>
+<p>ここでは、社会人1年目に支払うべき健康保険料と厚生年金保険料、雇用保険料の計算を行います。</p>
+<h3>健康保険料</h3>
+<p>健康保険料は、<a href="https://www.kyoukaikenpo.or.jp/g3/cat320/sb3160/sbb3165/1962-231/">「標準報酬月額」と「標準賞与額」</a>に保険料率を掛けて算出されます。「標準報酬月額」は、4月~6月の報酬月額を「保険料額表」と呼ばれる一定の幅で区分した報酬月額に当てはめて決定されます。「標準賞与額」は、税引前の賞与総額から千円未満を切り捨てたもので、年度の累計額573万円が上限となります。</p>
+<div style="height:200px; width:800px; margin-bottom:20px; overflow-y:scroll;">
+  <table border="1" width="780" cellpadding="10">
+    <tr>
+      <th>標準報酬月額の対象となるもの</th>
+      <th>標準賞与額の対象となるもの</th>
+    </tr>
+    <tr>
+      <td><p>基本給</p><p>残業手当</p><p>通勤手当（所得税の非課税分も含む）</p><p>職務手当</p><p>地域手当</p><p>住宅手当</p><p><a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150511.html">食事などの現物給与</a></p><p>年4回以上支給される賞与&emsp;など</p></td>
+      <td><p>年3回以下の回数で支給される賞与</p><p>自社製品等の現物で支給される賞与&emsp;など</p></td>
+    </tr> 
+  </table>
+  </div>
+<p>健康保険の保険料率は、会社がどの組合に所属しているかによって異なります。おもに大企業の場合は、組合管掌健康保険（組合健保）に所属し、保険料率が法律の範囲内（3％～13％）で独自に定められています。また、労使折半ではなく、会社の負担分を多くすることも認められています。</p>
+<p>おもに中小企業の場合は、全国健康保険協会（協会けんぽ）で、保険料が<a href="https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/r03/r3ryougakuhyou3gatukara/">都道府県別</a>（9％～11％）に定められています。こちらは原則として労使折半となっています。では、実際に計算してみましょう。</p>
+
+
+<form class="healthinsurance_form">
+  <table>
+      <tr>
+          <th><label>標準報酬月額：</label></th>
+          <td><input type="number" class="box" id="reward">&emsp;※58,000円～1,390,000円までの50等級のうち、当てはまる月額を入力</td>
+      </tr>
+      <tr>
+          <th><label>標準賞与額：</label></th>
+          <td><input type="number" class="box" id="award">&emsp;※年度の累計額を入力（千円未満切り捨て）</td>
+      </tr>
+      <tr>
+          <th><label>保険料率：</label></th>
+          <td><input type="number" class="box" id="rate">&emsp;※組合健保の場合は加入している組合の健康保険料率、協会けんぽの場合は<a href="https://www.kyoukaikenpo.or.jp/g7/cat330/sb3150/r03/r3ryougakuhyou3gatukara/">都道府県別の保険料率</a>を小数で入力</td>
+      </tr>
+      <tr>
+          <th><label>被保険者負担割合：</label></th>
+          <td><input tyoe="number" class="box" id="ratio">&emsp;※小数で入力（労使折半の場合は0.5）</td>
+      </tr>
+    </table>
+  <div class="buttonwrap">
+      <p><input type="button" class="calc-btn" onclick="calc3(reward.value, award.value, rate.value, ratio.value);" value="計算"></p>
+  </div>
+  <table>
+  <tr>
+    <th><label>健康保険料額（月間）：</label></th>
+    <td><input id="monthlyheal" class="box" type="number" readonly="">&emsp;＝標準報酬月額×保険料率×被保険者負担割合</td>
+  </tr>
+  <tr>
+    <th><label>健康保険料額（年間）：</label></th>
+    <td><input id="annualheal" class="box" type="number" readonly="">&emsp;＝健康保険料額（月間）×11ヶ月（5月~翌3月）＋標準賞与額×保険料率×被保険者負担割合</td>
+  </tr>
+  </table>
+</form>
+<script>
+  function calc3(reward, award, rate, ratio) {
+    const monthlyheal_value = document.getElementById("monthlyheal").value = Math.round(reward * rate * ratio);
+    const annualheal_value = document.getElementById("annualheal").value = Math.round((monthlyheal_value * 11) + (award * rate * ratio));
+    document.getElementById("month").innerText = parseInt(document.getElementById("monthlyheal").value) + parseInt(document.getElementById("monhealthins").value) + parseInt(document.getElementById("result").value);
+    document.getElementById("annual").innerText = parseInt(document.getElementById("annualheal").value) + parseInt(document.getElementById("annhealthins").value) + parseInt((document.getElementById("result").value) * 12);}  
+</script>
+
+
+<p><h3>厚生年金保険料</h3></p>
+<p><a href="https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-01.html">厚生年金保険料</a>は、健康保険料と同じく「標準報酬月額」と「標準賞与額」に保険料率を掛けて算出されます。「標準報酬月額」は、4月～6月の報酬月額を「<a href="https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/20200825.files/01.pdf">保険料額表</a>」と呼ばれる一定の幅で区分した報酬月額に当てはめて決定されます。「標準賞与額」は、税引前賞与額から1000円未満を切り捨てたもので、月間150万円が上限となります。</p>
+<p>健康保険料と異なり、保険料率は一律18.3％で労使折半されます。</p>
+<form class="welfarepension_form">
+  <table>
+      <tr>
+          <th><label>標準報酬月額：</label></th>
+          <td><input type="number" class="box" id="standard">&emsp;※88,000円～650,000円の32等級のうち、当てはまる月額を入力</td>
+      </tr>
+      <tr>
+          <th><label>標準賞与額：</label></th>
+          <td><input type="number" class="box" id="bonus">&emsp;※年度の累計額を入力（千円未満切り捨て）</td>
+      </tr>
+      <tr>
+          <th><label>保険料率：</label></th>
+          <td>&emsp;18.3％</td>
+      </tr>
+      <tr>
+          <th><label>被保険者負担割合：</label></th>
+          <td>&emsp;50％</td>
+      </tr>
+  </table>
+  <div class="buttonwrap">
+      <p><input type="button" class="calc-btn" onclick="calc4(standard.value, bonus.value);" value="計算"></p>
+  </div>
+  <table>
+  <tr>
+    <th><label>厚生年金保険料額（月間）：</label></th>
+    <td><input id="monhealthins" class="box" type="number" readonly="">&emsp;＝標準報酬月額×保険料率×被保険者負担割合</td>
+  </tr>
+  <tr>
+    <th><label>厚生年金保険料額（年間）：</label></th>
+    <td><input id="annhealthins" class="box" type="number" readonly="">&emsp;＝厚生年金保険料額（月間）×11ヶ月（5月~翌3月）＋標準賞与額×保険料率×被保険者負担割合</td>
+  </tr>
+  </table>
+</form>
+<script>
+  function calc4(standard, bonus) {
+    const monhealthins_value = document.getElementById("monhealthins").value = Math.round(standard * 0.183 * 0.5);
+    const annhealthins_value = document.getElementById("annhealthins").value = Math.round((monhealthins_value * 11) + (bonus * 0.183 * 0.5));
+    document.getElementById("month").innerText = parseInt(document.getElementById("monthlyheal").value) + parseInt(document.getElementById("monhealthins").value) + parseInt(document.getElementById("result").value);
+    document.getElementById("annual").innerText = parseInt(document.getElementById("annualheal").value) + parseInt(document.getElementById("annhealthins").value) + parseInt((document.getElementById("result").value) * 12);}
+    document.getElementById("reward").addEventListener("change",function(){
+      document.getElementById("standard").value = document.getElementById("reward").value;});
+    document.getElementById("award").addEventListener("change",function(){
+      document.getElementById("bonus").value = document.getElementById("award").value;});
+</script>
+
+
+<p><h3>雇用保険料</h3></p>
+<p>雇用保険料は、税金や社会保険料等を控除する前の総賃金額に、保険料率を掛けて算出されます。新卒社会人は4月から天引きが始まります。</p>
+<div style="height:200px; width:650px; margin-bottom:20px; overflow-y:scroll;">
+  <table border="1" width="600" cellpadding="10">
+    <tr>
+      <th><a href="https://www.mhlw.go.jp/new-info/kobetu/roudou/gyousei/hoken/2019/dl/koyou-05.pdf">雇用保険料の対象となるもの</a></th>
+      <th>対象とならないもの</th>
+    </tr>
+    <tr>
+      <td><p>基本給</p><p>賞与</p><p>通勤手当（所得税の非課税分も含む）</p><p>残業手当</p><p>地域手当</p><p>住宅手当</p><p>休業手当</p><p>現物給与&emsp;など</p></td>
+      <td><p>役員報酬</p><p>出張旅費</p><p>傷病手当金&emsp;など</p></td>
+    </tr> 
+  </table>
+  </div>
+<p><a href="https://www.mhlw.go.jp/content/000739455.pdf">保険料率</a>は事業によって異なり、事業主の方が多く負担することになっています。</p>
+<div style="background: #fceff2; box-shadow: #fceff2 0 0 5px 5px; width:500px; margin:5px; margin-bottom:20px;font-size: 100%; padding: 6px;">
+<table>
+  <tr>
+    <th><!--ここがempty--></th><th>&emsp;&emsp;労働者負担</th><th>&emsp;&emsp;事業主負担</th>
+  </tr>
+  <tr>
+    <th>一般の事業</th><td>&emsp;&emsp;&emsp;0.3％</td><td>&emsp;&emsp;&emsp;0.6％</td>
+  </tr>
+  <tr>
+    <th>農林水産・清酒製造の事業</th><td>&emsp;&emsp;&emsp;0.4％</td><td>&emsp;&emsp;&emsp;0.7％</td>
+  </tr>
+  <tr>
+    <th>建設の事業</th><td>&emsp;&emsp;&emsp;0.4％</td><td>&emsp;&emsp;&emsp;0.8％</td>
+  </tr>
+</table>
+</div>
+<form oninput="result.value = Math.round(Number(a.value) * Number(b.value));">
+  <p>雇用保険料の対象となる賃金額：
+  <input type="number" name="a" id="a" size="5">&ensp;×</p> 
+  <p>労働者負担の保険料率（0.003または0.004を入力）：
+  <input type="number" name="b" id="b" size="5">&ensp;＝
+  <output id="result">雇用保険料（月額）</output></p>
+</form>
+
+<h2>社会保険料総額</h2>
+<p>月間の社会保険料＝<label id="month">0</label></p>
+<p>年間の社会保険料＝<label id="annual">0</label></p>
+<script>
+document.getElementById("b").addEventListener("change",function(){document.getElementById("month").innerText = parseInt(document.getElementById("monthlyheal").value) + parseInt(document.getElementById("monhealthins").value) + parseInt(document.getElementById("result").value);});
+document.getElementById("b").addEventListener("change",function(){document.getElementById("annual").innerText = parseInt(document.getElementById("annualheal").value) + parseInt(document.getElementById("annhealthins").value) + parseInt((document.getElementById("result").value) * 12);});
+document.getElementById("a").addEventListener("change",function(){document.getElementById("month").innerText = parseInt(document.getElementById("monthlyheal").value) + parseInt(document.getElementById("monhealthins").value) + parseInt(document.getElementById("result").value);});
+document.getElementById("a").addEventListener("change",function(){document.getElementById("annual").innerText = parseInt(document.getElementById("annualheal").value) + parseInt(document.getElementById("annhealthins").value) + parseInt((document.getElementById("result").value) * 12);});
+</script>
+
+</section>
+
+
+
+</div>
+<!--/contents-->
+
+<footer>
+<small>Copyright&copy; <a href="index.html">社会人1年生のためのマネーサイト2022</a> All Rights Reserved.</small>
+<span class="pr">《<a href="https://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
+</footer>
+
+</div>
+<!--/container-->
+
+</body>
+</html>

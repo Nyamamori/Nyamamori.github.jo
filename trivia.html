@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>初心者向けホームページテンプレート tp_beginner5</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="社会人1年生のためのマネーサイトです。金融リテラシー向上を目的としています。">
+<meta name="keywords" content="税,社会人1年目,確定申告,社会保険料,ふるさと納税">
+<link rel="stylesheet" href="css/style.css">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body>
+
+<div id="container">
+
+<header>
+<h1 id="logo"><a href="index.html"><img src="images/logo.png" alt="社会人1年生のためのマネーサイト"></a></h1>
+</header>
+
+<nav id="menubar">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">所得税</a></li>
+<li><a href="fee.html">社会保険料</a></li>
+<li><a href="trivia.html">豆知識</a></li>
+</ul>
+</nav>
+
+<div id="contents">
+
+<section>
+
+<h2>知っておくべき税知識</h2>
+<h3>1.&ensp;住民税</h3>
+<p>住民税は前年の所得をもとに課税され、多くの新卒社会人は2年目の6月から徴収されます。国税である所得税に対し、住民税は各都道府県や各市区町村に納める地方税です。そのため、控除額など税金の計算方法には違いがあります。</p>
+<p>住民税は「所得割」と「均等割」の2つの区分で計算されます。「所得割」は前年の所得額に応じて課税されるもので、自治体によって差異がありますが、基本的に税率は一律10％（道府県民税が4％、市町村民税が6％）です。</p>
+<div style="background-color: #fceff2; border-radius: 5px; border: 1px dashed #ffb6c1;font-size: 100%; padding: 10px; width: 550px; margin-bottom: 20px"> 
+  ✓&emsp;所得割&ensp;＝（前年の総所得金額&ensp;ー&ensp;所得控除額）×&ensp;税率&ensp;ー&ensp;税額控除額</div>
+<p>「均等割」は、所得額に関わらず均等の税額で課されるもので、これも自治体によって差異がありますが、約5000円です。では、社会人2年目の住民税を実際に計算してみましょう。</p>
+<form class="resident_form">
+  <table>
+      <tr>
+          <th><label>給与所得：</label></th>
+          <td><input type="number" class="box" id="income" value=""></td>
+      </tr>
+      <tr>
+          <th><label>基礎控除：</label></th>
+          <td>43万円　※所得税の基礎控除が48万円であったのに対し、住民税の基礎控除は43万円です。</td>
+      </tr>
+      <tr>
+          <th><label>社会保険料控除：</label></th>
+          <td><input type="number" class="box" id="social"></td>
+      </tr>
+      <tr>
+          <th><label>税率：</label></th>
+          <td><input type="number" class="box" id="percentage">&emsp;※基本は0.1。正確な税率で計算したい場合は、お住まいの自治体のHPをご覧ください。</td>
+      </tr>
+      <tr>
+        <th><label>税額控除：</label></th>
+        <td><input type="number" class="box" id="deduction">&emsp;※新卒社会人は0であることが多いです。</td>
+      </tr>
+      <tr>
+        <th><label>均等割：</label></th>
+        <td><input type="number" class="box" id="equal">&emsp;※基本は5000。正確な額で計算したい場合は、お住まいの自治体のHPをご覧ください。</td>
+      </tr>
+    </table>
+  <div class="buttonwrap">
+      <p><input type="button" class="calc-btn" onclick="calc5(income.value, social.value, percentage.value, deduction.value, equal.value);" value="計算"></p>
+  </div>
+  <table>
+  <tr>
+    <th><label>住民税額：</label></th>
+    <td><input id="resident_tax" class="box" type="number" readonly="">&emsp;＝&emsp;所得割&emsp;＋&emsp;均等割&emsp;※百円未満切り捨て</td>
+  </tr>
+  </table>
+</form>
+</section>
+
+<section>
+<h3>2.&ensp;ふるさと納税</h3>
+<p><a href="https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/080430_2_kojin.html">ふるさと納税</a>とは、総務大臣の指定を受けた地方団体に寄附を行った場合に、寄附額のうち2000円を超える部分について、一定の上限まで所得税と住民税から控除される制度です。所得税分は、その年の所得税から控除され、住民税分は翌年の住民税が減額されます。</p>
+<p>ふるさと納税を行った場合、原則として確定申告が必要となりますが、1年間の寄附先が5自治体以下であれば確定申告不要で住民税の控除が受けられる「ワンストップ特例制度」を利用できます。</p>
+<img src="images/hometown.png" alt="ふるさと納税のしくみ" title="ふるさと納税のしくみ" width="700" height="250"><p>お得度はほとんど変わらないため、元々確定申告を必要としない新卒社会人はワンストップ特例制度が断然おすすめです。</p>
+<fieldset style=" background: #fcf0f1; padding: 20px;  margin-bottom: 20px; width: 600px; border: 2px dashed #ad8e60cc; box-shadow: 0 0 0 5px #ffe6e8; -moz-box-shadow: 0 0 0 5px #ffe6e8; -webkit-box-shadow: 0 0 0 5px #faf0f1; font-size: 100%;"><legend><a href="https://www.furusato-tax.jp/about/onestop">ふるさと納税ワンストップ特例制度</a>の利用方法</legend>
+  <p>1.&emsp;5団体以内＆控除限度額以内でふるさと納税をする</p>
+  <p>2.&emsp;ふるさと納税ワンストップ特例の申請書と必要書類を提出する</p>
+  <p>（申込のたびに寄附先の自治体へ郵送しましょう。翌年1月10日必着！）</p>
+  <p>→&emsp;翌年の住民税が減額されます。</p></fieldset>
+<p>あなたのふるさと納税の控除限度額は、（個人住民税所得割額&ensp;×&ensp;20％）÷（100％－10％－&ensp;所得税率&ensp;×&ensp;復興特別所得税率1.021）＋自己負担2000円＝<label id="hometown_tax">「&emsp;」</label>円です。</p>
+<script>
+function calc5(income, social, percentage, deduction, equal) {
+    var municipal_tax = Math.floor((income - 430000 - social) * percentage - deduction + parseInt(equal)) * 0.01; document.getElementById("resident_tax").value = Math.floor(municipal_tax * 100);
+    var tax_amount = Math.floor(income - 480000 - social);
+    var income_percent = Math.floor(((tax_amount * percentage - deduction) * 0.01) * 100);
+    var tax_rate;
+    if ((1000 <= tax_amount && tax_amount <= 1949000)) {tax_rate = 0.05;}
+    else if ((1950000<= tax_amount && tax_amount <= 3299000)) {tax_rate = 0.1;}
+    else if ((3300000 <= tax_amount && tax_amount <= 6949000)) {tax_rate = 0.2;}
+    else if ((6950000 <= tax_amount && tax_amount <= 8999000)) {tax_rate = 0.23;}
+    else if ((9000000 <= tax_amount && tax_amount <= 17999000)) {tax_rate = 0.33;}
+    else if ((18000000 <= tax_amount && tax_amount <= 39999000)) {tax_rate = 0.40;}
+    else {tax_rate = 0.45;};
+    document.getElementById("hometown_tax").innerText = Math.floor((income_percent * 0.2) / (1 - 0.1 - tax_rate * 1.021));}
+</script>
+</section>
+
+</div>
+<!--/contents-->
+
+<footer>
+<small>Copyright&copy; <a href="index.html">社会人1年生のためのマネーサイト2022</a> All Rights Reserved.</small>
+<span class="pr">《<a href="https://template-party.com/" target="_blank">Web Design:Template-Party</a>》</span>
+</footer>
+
+</div>
+<!--/container-->
+
+</body>
+</html>
